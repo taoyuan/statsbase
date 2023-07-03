@@ -1,6 +1,6 @@
 {
   "name": "statsbase",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An average, variance, covariance and correlation calculator written in TypeScript",
   "keywords": [
     "stats",
