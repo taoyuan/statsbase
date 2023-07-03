@@ -1,0 +1,71 @@
+{
+  "name": "statsbase",
+  "version": "0.1.0",
+  "description": "An average, variance, covariance and correlation calculator written in TypeScript",
+  "keywords": [
+    "stats",
+    "statistics",
+    "average",
+    "variance",
+    "covariance",
+    "correlation"
+  ],
+  "author": "TY <towyuan@outlook.com>",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "prerelease": "yarn && cross-env CI=1 yarn run test",
+    "release": "yarn prerelease && release-it",
+    "build": "nb-tsc",
+    "build:full": "yarn install && yarn run clean && yarn run build",
+    "lint": "yarn run prettier:check && yarn run eslint",
+    "lint:fix": "yarn run eslint:fix && yarn run prettier:fix",
+    "eslint": "nb-eslint --report-unused-disable-directives --cache .",
+    "eslint:fix": "yarn run eslint --fix",
+    "prettier:cli": "nb-prettier \"**/*.ts\" \"**/*.md\"",
+    "prettier:check": "yarn run prettier:cli --check",
+    "prettier:fix": "yarn run prettier:cli --write",
+    "clean": "del 'dist' 'coverage' '.nyc_output' '*.tsbuildinfo'",
+    "pretest": "yarn run clean && yarn run build",
+    "test": "yarn run jest",
+    "test:ci": "node --experimental-vm-modules $(yarn bin jest)",
+    "jest": "node --experimental-vm-modules $(yarn bin jest)",
+    "posttest": "yarn run lint"
+  },
+  "devDependencies": {
+    "@nutol/build": "^0.2.13",
+    "@nutol/eslint-config": "^0.2.8",
+    "@nutol/ts-config-esm": "^0.2.1",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/jest": "^29.4.0",
+    "@types/micromatch": "^4.0.2",
+    "@types/node": "^18.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
+    "cross-env": "^7.0.3",
+    "del-cli": "^5.0.0",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-eslint-plugin": "^5.0.8",
+    "eslint-plugin-mocha": "^10.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.4.2",
+    "jest-junit": "^15.0.0",
+    "prettier": "^2.8.4",
+    "release-it": "^15.11.0",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.5"
+  },
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
+  "packageManager": "yarn@3.6.1"
+}
