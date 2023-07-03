@@ -1,6 +1,6 @@
-import byteView from './view';
+import {byteView} from './view';
 
-export default class Stats {
+export class Stats {
   public M: number;
 
   private readonly _mi: Float64Array;

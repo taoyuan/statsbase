@@ -8,7 +8,7 @@ export type ViewConstructor<T> = new (buffer: ArrayBufferLike, byteOffset?: numb
  * @param {number} [length]
  * @return {DataView|TypedArray}
  */
-export default function <T extends ArrayBufferOrView, K = T, R = K extends never ? T : K>(
+export function byteView<T extends ArrayBufferOrView, K = T, R = K extends never ? T : K>(
   lastSibling: T,
   View?: ViewConstructor<K>,
   length?: number,

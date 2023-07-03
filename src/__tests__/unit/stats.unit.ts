@@ -1,4 +1,4 @@
-import Stats from '../../stats';
+import {Stats} from '../../stats';
 
 describe('Stats Library', () => {
   it('single set', () => {
