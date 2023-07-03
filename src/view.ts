@@ -18,5 +18,5 @@ export default function <T extends ArrayBufferOrView, K = T, R = K extends never
   if (!ctor) {
     throw Error('Missing view constructor');
   }
-  return new ctor(buffer ?? lastSibling, buffer ? byteOffset + byteLength : 0, length);
+  return new ctor((buffer ?? lastSibling) as ArrayBufferLike, buffer ? byteOffset + byteLength : 0, length);
 }

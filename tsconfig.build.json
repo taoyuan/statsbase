@@ -4,6 +4,7 @@
     "tsconfig.json is used by tsc"
   ],
   "compilerOptions": {
+    "target": "es2022",
     "skipLibCheck": true,
     "allowJs": true,
     "noEmit": true,

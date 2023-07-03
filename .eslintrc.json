@@ -13,7 +13,7 @@
       ],
       "rules": {
         "@typescript-eslint/no-explicit-any": "off",
-        "eslint-disable-next-line @typescript-eslint/naming-convention": "off"
+        "@typescript-eslint/naming-convention": "off"
       }
     }
   ]

@@ -29,12 +29,10 @@ export default class Stats {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   get N() {
     return this._mi[this._mi.length - 1];
   } //last byte in memory
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   set N(count) {
     this._mi[this._mi.length - 1] = count;
   }
