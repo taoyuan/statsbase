@@ -48,9 +48,12 @@ const correlation20 = stat.cor(2, 0);
 
 - `.push(number0, number1, ...) => {number} sampleSize` - add sample value(s) and returns the sample size
 - `.push([number0, number1, ...]) => {number} sampleSize` - add array of sample value(s) and returns the sample size
-- `.ave(index) => {number}` - average of a given dataset
-- `.var(index) => {number}` - variance of a given dataset
-- `.dev(index) => {number}` - standard deviation of a given dataset
+- `.ave(index) => {number}` - average of a given dataset. `index` is optional, if not provided, returns an array of all
+  averages
+- `.var(index) => {number}` - variance of a given dataset. `index` is optional, if not provided, returns an array of all
+  variances
+- `.dev(index) => {number}` - standard deviation of a given dataset. `index` is optional, if not provided, returns an
+  array of all standard deviations
 - `.cov(j, i) => {number}` - covariance between two datasets
 - `.cor(j, i) => {number}` - correlation between two datasets
 - `.slope(j, i) => {number}` - slope for `y=set[j]` and `x=set[i]`

@@ -75,12 +75,23 @@ export default class Stats {
   }
 
   /**
-   * Average of given set
-   * @param {number} [index] index
-   * @return {number} average
+   * All averages of the set
+   * @return {number} all averages
    */
-  ave(index = 0) {
-    return this._mi[index];
+  ave(): number[];
+
+  /**
+   * Average of a set
+   * @param index The index of the set
+   */
+  ave(index: number): number;
+  ave(index?: number): number | number[] {
+    if (typeof index === 'number') {
+      return this._mi[index];
+    }
+    return Array(this.M)
+      .fill(0)
+      .map((_, i) => this._mi[i]);
   }
 
   /**
@@ -96,21 +107,44 @@ export default class Stats {
   }
 
   /**
-   * Variance of a set
-   * @param {number} [index] index
-   * @return {number} variance
+   * All covariances
+   * @return all variances
    */
-  var(index = 0) {
-    return this.cov(index, index);
+  var(): number[];
+  /**
+   * Variance of a set
+   * @param index The index of the set
+   */
+  var(index: number): number;
+  var(index?: number): number | number[] {
+    if (typeof index === 'number') {
+      return this.cov(index, index);
+    }
+
+    return Array(this.M)
+      .fill(0)
+      .map((_, i) => this.cov(i, i));
   }
 
+  /**
+   * All standard deviations
+   * @return all standard deviations
+   */
+  dev(): number[];
   /**
    * standard deviation of a set
    * @param {number} [index] index
    * @return {number} standard deviation
    */
-  dev(index = 0) {
-    return Math.sqrt(this.cov(index, index));
+  dev(index: number): number;
+  dev(index?: number): number | number[] {
+    if (typeof index === 'number') {
+      return Math.sqrt(this.cov(index, index));
+    }
+
+    return Array(this.M)
+      .fill(0)
+      .map((_, i) => Math.sqrt(this.cov(i, i)));
   }
 
   /**

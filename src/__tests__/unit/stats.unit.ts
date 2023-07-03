@@ -4,12 +4,14 @@ describe('Stats Library', () => {
   it('single set', () => {
     const stat = new Stats(1);
     expect(stat.push(3)).toBe(1);
-    expect(stat.ave()).toBe(3);
+    expect(stat.ave(0)).toBe(3);
     expect(isNaN(stat.var(0))).toBe(true);
     expect(stat.push(1)).toBe(2);
-    expect(stat.ave(0)).toBe(2);
     expect(stat.N).toBe(2);
-    expect(stat.var()).toBe(2);
+    expect(stat.ave(0)).toBe(2);
+    expect(stat.ave()).toEqual([2]);
+    expect(stat.var(0)).toBe(2);
+    expect(stat.var()).toEqual([2]);
   });
 
   it('2 dimensions...', () => {
@@ -18,6 +20,7 @@ describe('Stats Library', () => {
     expect(stat.push([2, 1])).toBe(2);
     expect(stat.ave(0)).toBe(3 / 2);
     expect(stat.ave(1)).toBe(3 / 2);
+    expect(stat.ave()).toEqual([3 / 2, 3 / 2]);
     expect(stat.var(1)).toBe(1 / 2);
     expect(stat.cor(0, 1)).toBe(-1);
     expect(stat.cor(0, 0)).toBe(1);
